@@ -12,7 +12,7 @@ var sceltaComando = prompt("Scegli pari o dispari");
 
 // controlliamo che la scelta sia pari o dispari
 if (sceltaComando != "dispari" && sceltaComando != "pari" && sceltaComando != "PARI" && sceltaComando != "DISPARI") {
-    parseInt(prompt("Errore! Scegli pari o dispari"));
+    (prompt("Errore! Scegli pari o dispari"));
 } 
 
 // trasformo la scelta in lowercase
@@ -51,17 +51,25 @@ function isEven (num) {
     }
 }
 
+function isOdd (num) {
+
+    if (num % 2 == 1) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 // invoco la funzione con la somma che mi interessa
-var check = isEven(sommaNumeri);
+var checkEven = isEven(sommaNumeri);
+var checkOdd = isOdd(sommaNumeri);
 
 // se la somma è pari e l'utente ha scelto pari, stampo hai vinto;
 // se la somma  è pari e l'utente ha scelto dispari, stampo hai perso;
 // altrimenti stampo hai vinto (l'utente ha scelto dispari e la somma è dispari).
 
-if (check && sceltaComando == "pari") {
-    console.log("Hai vinto!");
-} else if (check && sceltaComando == "dispari") {
-    console.log("Hai Perso");
+if ((checkOdd && sceltaComando == "dispari") || (checkEven && sceltaComando == "pari")) {
+    alert("Hai vinto!");
 } else {
-    console.log("Hai vinto!");
+    alert("Hai perso!");
 }
